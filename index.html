@@ -3,22 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تحذير أمني</title>
+    <title>تنبيه أمني</title>
     <style>
         body {
             background-color: black;
             color: #00ff00;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: sans-serif;
             text-align: center;
-            padding-top: 8%;
+            padding-top: 5%;
             direction: rtl;
-            overflow: hidden;
         }
         .warning {
             color: red;
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: bold;
-            animation: blink 0.8s infinite;
         }
         .console {
             text-align: right;
@@ -27,63 +25,60 @@
             background: #111;
             padding: 15px;
             border: 1px solid red;
-            height: 220px;
-            overflow-y: hidden;
+            min-height: 150px;
             font-size: 1.1rem;
             color: #00ff00;
-            box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.3);
-        }
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-            100% { opacity: 1; }
         }
     </style>
 </head>
 <body>
 
     <div class="warning">⚠️ تحذير خطير: تم اختراق الهاتف بالكامل! ⚠️</div>
-    <p style="font-size: 1.3rem; color: #fff;">جاري سحب وتشفير ملفات النظام والبيانات الشخصية...</p>
+    <p style="font-size: 1.2rem; color: #fff;">جاري سحب وتشفير ملفات النظام والبيانات الشخصية...</p>
     
     <div class="console" id="console"></div>
 
-    <h2 style="color: yellow; font-size: 1.4rem;">سيتم حذف نظام التشغيل وفرمطة الهاتف خلال: <span id="timer" style="color: red; font-size: 2rem;">30</span> ثانية</h2>
+    <h2 style="color: yellow; font-size: 1.3rem;">سيتم حذف نظام التشغيل وفرمطة الهاتف خلال: <span id="timer" style="color: red; font-size: 2rem;">30</span> ثانية</h2>
 
     <script>
         const lines = [
-            "جاري الاتصال بالسيرفر الخارجي [تليجرام بوت]...",
-            "تم تخطي جدار الحماية الخاص بالهاتف بنجاح...",
-            "جاري الدخول إلى الذاكرة الداخلية العميقة (Root)...",
-            "تم الوصول إلى معرض الصور والفيديوهات الشخصية...",
-            "جاري نسخ ومزامنة محادثات الواتساب والماسينجر...",
-            "جاري سحب جهات الاتصال والأرقام المسجلة...",
-            "تم تحديد موقع الهاتف التقريبي عبر الـ GPS...",
-            "جاري زرع فيروس التشفير وفصل أزرار التحكم..."
+            "جاري الاتصال بالسيرفر الخارجي...",
+            "تم تخطي جدار الحماية بنجاح...",
+            "جاري الدخول إلى الذاكرة الداخلية...",
+            "تم الوصول إلى معرض الصور والملفات...",
+            "جاري نسخ ومزامنة المحادثات...",
+            "جاري سحب جهات الاتصال والأرقام...",
+            "جاري زرع فيروس التشفير..."
         ];
         
-        let i = 0;
+        let lineIndex = 0;
         const consoleEl = document.getElementById('console');
         
         function typeLine() {
-            if (i < lines.length) {
-                consoleEl.innerHTML += "✔ " + lines[i] + "<br><br>";
-                i++;
-                setTimeout(typeLine, 1800);
-            } else {
-                i = 0;
+            if (lineIndex < lines.length) {
+                consoleEl.innerHTML += "✔ " + lines[lineIndex] + "<br><br>";
+                lineIndex++;
+                setTimeout(typeLine, 1500);
             }
         }
-        typeLine();
-
-        let timeLeft = 30;
-        const timerEl = document.getElementById('timer');
-        const countdown = setInterval(() => {
-            timeLeft--;
-            timerEl.textContent = timeLeft;
-            if (timeLeft <= 0)  );
-                document.body.innerHTML = "<h1 style='color:white; padding-top:20%; font-size: 2.5rem;'>مقلب يا غالي! 😂❤️<br><br><span style='color: #00ff00;'>شربت الهاك بنجاح.. ومفيش أي حاجة اتسرقت متقلقش!</span></h1>";
-            }
-        }, 1000);
+        
+        window.onload = function() {
+            typeLine();
+            
+            let timeLeft = 30;
+            const timerEl = document.getElementById('timer');
+            
+            const countdown = setInterval(() => {
+                timeLeft--;
+                timerEl.textContent = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(countdown);
+                    alert! ");
+                    document.body.innerHTML = "<h1 style='color:white; padding-top:20%; font-size: 2.5rem;'>مقلب يا غالي! 😂❤️<br><br><span style='color: #00ff00;'>شربت الهاك بنجاح.. ومفيش أي حاجة اتسرقت متقلقش!</span></h1>";
+                }
+            }, 1000);
+        };
     </script>
 </body>
 </html>
+
